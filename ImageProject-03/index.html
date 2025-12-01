@@ -11,6 +11,8 @@
       <!-- Tent OBJ + MTL placed in local 'assests' folder (keep spelling from disk) so MTL and textures resolve correctly -->
       <a-asset-item id="tent-obj" src="ImageProject-03/assests/tent.obj"></a-asset-item>
       <a-asset-item id="tent-mtl" src="ImageProject-03/assests/.mtl"></a-asset-item>
+      <img id="tent1" src="ImageProject-03/assests/tent1.jpeg"></img>
+      <img id="tent2" src="ImageProject-03/assests/tent2.jpeg"></img>
     </a-assets>
 
     <a-scene>
@@ -21,9 +23,9 @@
       <a-plane position="0 0 -4" rotation="-90 0 0" width="12" height="14" color="#00008B"></a-plane>
 
 
-      <a-cone position="-2 1 -5" radius-bottom="1" radius-top="0.01" height="2" color="#D2691E" rotation="0 0 0"></a-cone>
-      <a-cone position="3 2 -3" radius-bottom="0.5" radius-top="0" height="2" color="#4CC3D9" rotation="0 0 0"></a-cone>
-      <a-cone position="-4 1 -3" radius-bottom="0.8" radius-top="0" height="1.5" color="red" rotation="0 0 0"></a-cone>
+      <a-cone position="-2 1 -5" radius-bottom="1" radius-top="0.01" height="2" material ="src:#tent2" rotation="0 0 0"></a-cone>
+      <a-cone position="3 2 -3" radius-bottom="0.5" radius-top="0" height="2" rotation="0 0 0" color="#4CC3D9"></a-cone>
+      <a-cone position="-4 1 -3" radius-bottom="0.8" radius-top="0" height="1.5" rotation="0 0 0" color="src:#tent1"></a-cone>
 
       <a-obj-model src="#tree" position="-4 0 -6" scale="0.5 0.5 0.5" color="green"></a-obj-model>
       
