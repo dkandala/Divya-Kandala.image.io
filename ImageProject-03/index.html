@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@3.0.1/dist/aframe-particle-system-component.min.js"></script>
   </head>
   <body>
+    <a-assets>
+      <!-- Tree asset: use the existing lowpoly tree from the examples folder -->
+      <a-asset-item id="tree" src="../03-Adding-3D-objects-lights-text/assets/Lowpoly_tree_sample.obj"></a-asset-item>
+      <!-- Tent OBJ + MTL placed in local 'assests' folder (keep spelling from disk) so MTL and textures resolve correctly -->
+      <a-asset-item id="tent-obj" src="ImageProject-03/assests/tent.obj"></a-asset-item>
+      <a-asset-item id="tent-mtl" src="ImageProject-03/assests/.mtl"></a-asset-item>
+    </a-assets>
+
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-box position="1 1 -4" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-pyramid position="0 1.5 -3" rotation="0 0 0" color="#EF2D5E" height="1.5" radius-base="1"></a-pyramid>
-      <a-cylinder position="-3 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+      <a-text value="A Night at the Campsite" position="2 6 -7" wrap-count="12" width="6" font-family="Roboto" color="#FFFFFF"></a-text>
+
+      <a-box position="3 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="12" height="14" color="#00008B"></a-plane>
-      <a-sky src="url(AdobeStock_336144820.jpeg)"></a-sky>
+
+
+      <a-cone position="-2 1 -5" radius-bottom="1" radius-top="0.01" height="2" color="#D2691E" rotation="0 0 0"></a-cone>
+      <a-cone position="3 2 -3" radius-bottom="0.5" radius-top="0" height="2" color="#4CC3D9" rotation="0 0 0"></a-cone>
+      <a-cone position="-4 1 -3" radius-bottom="0.8" radius-top="0" height="1.5" color="red" rotation="0 0 0"></a-cone>
+
+      <a-obj-model src="#tree" position="-4 0 -6" scale="0.5 0.5 0.5" color="green"></a-obj-model>
+      
+      <a-entity obj-model="obj: #tent-obj; mtl: #tent-mtl" position="0 1 -3" scale="1 1 1"></a-entity>
+
+    <a-entity position="0 1 -3">
+        <a-entity particle-system="particleCount: 900; color: #ffdd99,#ff6a00,#552200; size: 0.18; sizeRandom: 0.6; maxAge: 1.6; acceleration: 0 1.8 0; velocitySpread: 0.6 1.2 0.6"></a-entity>
+        <a-light type="point" color="#ff9f1c" intensity="1.4" distance="6" position="0 0.6 0"></a-light>
+      </a-entity>
+
+      <a-sky src="url(background.jpg)"></a-sky>
     </a-scene>
   </body>
 </html>
